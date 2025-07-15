@@ -25,12 +25,12 @@ done
 
 # Check for remaining arguments
 if [ -z "$input_file" ]; then
-	if [ $OPTIND -gt $# ]; then
-		echo "Error: Missing input string"
-		usage
-	else
-		input_string="${@:$OPTIND:1}"
-	fi
+	   if [ $OPTIND -gt $# ]; then
+			   echo "Error: Missing input string"
+			   usage
+	   else
+			   input_string="${*:$OPTIND}"
+	   fi
 else
 	if [ -f "$input_file" ]; then
 		input_string=$(<"$input_file")
