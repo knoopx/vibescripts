@@ -3,6 +3,6 @@ pkgs.writeShellApplication {
   name = "strip-python-comments";
   runtimeInputs = with pkgs; [python3];
   text = ''
-    python ${./strip-python-comments.py} "$@"
+    python ${./scripts/strip-python-comments.py} "$@"
   '';
 }
