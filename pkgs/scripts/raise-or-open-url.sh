@@ -1,12 +1,12 @@
 #!/bin/bash
 set -euo pipefail
 
-URL="$1"
-if [ -z "$URL" ]; then
+if [ "${1-}" = "" ]; then
     echo "Usage: $0 <url>"
     exit 1
 fi
 
+URL="$1"
 TAB_ID=$(bt list | awk -F'\t' -v url="$URL" '$3 == url {print $1}' | head -n 1)
 
 if [ -n "$TAB_ID" ]; then
