@@ -14,6 +14,8 @@ usage() {
 	exit 1
 }
 
+OPENAI_API_KEY="${OPENAI_API_KEY:-}"
+
 # Default values
 model="tts-1"
 voice="af_heart"
