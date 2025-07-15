@@ -25,13 +25,13 @@ lang_code=""
 
 # Parse command-line options
 while getopts 'v:m:i:s:l:u:h' flag; do
-	case "''${flag}" in
-	m) model="''${OPTARG}" ;;
-	v) voice="''${OPTARG}" ;;
-	i) input_file="''${OPTARG}" ;;
-	s) speed="''${OPTARG}" ;;
-	l) lang_code="''${OPTARG}" ;;
-	u) volume_multiplier="''${OPTARG}" ;;
+	case "${flag}" in
+	m) model="${OPTARG}" ;;
+	v) voice="${OPTARG}" ;;
+	i) input_file="${OPTARG}" ;;
+	s) speed="${OPTARG}" ;;
+	l) lang_code="${OPTARG}" ;;
+	u) volume_multiplier="${OPTARG}" ;;
 	h) usage ;;
 	*) usage ;;
 	esac
