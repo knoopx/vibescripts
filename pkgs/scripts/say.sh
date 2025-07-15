@@ -73,7 +73,12 @@ PARAM=$(
 		'$ARGS.named'
 )
 
-curl -s "$OPENAI_API_BASE/audio/speech" \
-	-H "Authorization: Bearer $OPENAI_API_KEY" \
-	-H "Content-Type: application/json" \
-	-d "$PARAM" | mpv --no-terminal --force-window=no -
+{
+	mpv --no-terminal --force-window=no <(
+		curl -s "$OPENAI_API_BASE/audio/speech" \
+			-H "Authorization: Bearer $OPENAI_API_KEY" \
+			-H "Content-Type: application/json" \
+			-d "$PARAM"
+	) &
+	disown
+}
