@@ -1,4 +1,14 @@
+
 #!/usr/bin/env bash
+#
+# To use this script, you must set the OPENAI_API_KEY environment variable.
+#
+# For fish shell users, run:
+#   set -Ux OPENAI_API_KEY "your-api-key-here"
+#
+# For bash/zsh users, run:
+#   export OPENAI_API_KEY="your-api-key-here"
+
 
 # Function to display help
 usage() {
@@ -11,6 +21,12 @@ voice="af_heart"
 model="tts-1"
 input_file=""
 input_string=""
+
+if [ -z "$OPENAI_API_KEY" ]; then
+	echo "Error: The environment variable OPENAI_API_KEY is not set."
+	echo "Please set it before running this script."
+	exit 1
+fi
 
 # Parse command-line options
 while getopts 'v:m:i:h' flag; do
