@@ -23,6 +23,7 @@
           nixos-changelog = callPackage ./pkgs/nixos-changelog.nix {};
           drum-practice = callPackage ./pkgs/drum-practice.nix {};
           niri-rotate-display-desktop-items = callPackage ./pkgs/niri-rotate-display-desktop-items.nix {};
+          repl = callPackage ./pkgs/repl.nix {};
         };
       in {
         packages = vibescriptsPkgs // {default = vibescriptsPkgs;};
