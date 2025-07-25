@@ -44,14 +44,14 @@ if [[ $separator_index -gt 0 ]]; then
     input=${!1}
     # Command arguments after --
     for ((i = separator_index + 1; i <= $#; i++)); do
-        command_args+=(${!i})
+        command_args+=("${!i}")
     done
 elif [[ $separator_index -eq 1 ]]; then
     # No file argument, starts with --
     input=""
     # Command arguments after --
     for ((i = separator_index + 1; i <= $#; i++)); do
-        command_args+=(${!i})
+        command_args+=("${!i}")
     done
 else
     # No -- separator

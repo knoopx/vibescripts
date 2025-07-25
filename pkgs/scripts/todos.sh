@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Step 1: Gather TODOs from files
-todos="$(egrep -inr "\- \[(x|\s)\]" "$1")"
+todos="$(grep -Einr "\- \[(x|\s)\]" "$1")"
 
 # Step 2: Build choices and selected arrays
 choices_arr=()
@@ -53,7 +53,7 @@ if [[ -n "$chosen" ]]; then
     while IFS= read -r chosen_line; do
         if [[ -n "$chosen_line" ]]; then
             # Extract todo text (before |||) and file:line info (after |||)
-            todo_text=$(echo "$chosen_line" | cut -d'|' -f1)
+            # todo_text was unused and removed to fix ShellCheck SC2034
             file_line=$(echo "$chosen_line" | cut -d'|' -f4)
             # Use the file:line as the key directly
             if [[ -n "$file_line" ]]; then
@@ -72,8 +72,8 @@ fi
 for key in "${!todo_map[@]}"; do
     file="$(echo "$key" | cut -d: -f1)"
     lineno="$(echo "$key" | cut -d: -f2)"
-    orig_state="${state_map[$key]}"
-    new_state="${new_state_map[$key]}"
+    orig_state="${state_map["$key"]}"
+    new_state="${new_state_map["$key"]}"
 
     if [[ "$orig_state" != "$new_state" ]]; then
         printf "Updating %s:%s from %d to %d\n" "$file" "$lineno" "$orig_state" "$new_state"
