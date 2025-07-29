@@ -19,8 +19,6 @@ All scripts are available as Nix shell applications. Here is a summary:
 | Name                  | Type    | Description                                                                          |
 | --------------------- | ------- | ------------------------------------------------------------------------------------ |
 | drum-practice         | Python  | Splits an input MP3 into stems using Demucs for drum practice.                       |
-| importantize          | Node.js | PostCSS plugin that marks all CSS declarations as `!important`.                      |
-| nixos-changelog       | Bash    | Compares NixOS generations and shows changelogs; supports an index argument.         |
 | raise-or-open-url     | Bash    | Activates a browser tab with a given URL or opens it if not found.                   |
 | repl                  | Bash    | Interactive search through file content using `fzf`, with flexible preview commands. |
 | say                   | Bash    | Text-to-speech script with options for voice, model, speed, volume, and language.    |

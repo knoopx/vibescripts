@@ -16,7 +16,6 @@
         pkgs = import nixpkgs {inherit system;};
         callPackage = pkgs.callPackage;
         vibescriptsPkgs = {
-          importantize = callPackage ./pkgs/importantize.nix {};
           strip-python-comments = callPackage ./pkgs/strip-python-comments.nix {};
           say = callPackage ./pkgs/say.nix {};
           raise-or-open-url = callPackage ./pkgs/raise-or-open-url.nix {};
